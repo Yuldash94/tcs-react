@@ -7,13 +7,12 @@ interface Props {
 }
 
 export function WorkListImages({images, sendImageToSlider, setImages}:Props) {
-    const dragImage = (e:any) => {
+    const handleDragImage = (e:any) => {
         e.dataTransfer.setData('url', e.target.src)
     }
-    const onImageSelect = (e:any) => {
-        console.log(e.target.files);
+    const handleImageSelect = (e:any) => {
         const file = e.target.files[0]
-        let newImage = {
+        let newImage: Iimage = {
             id: Math.random(),
             url: URL.createObjectURL(new Blob([file]))
         }
@@ -26,17 +25,16 @@ export function WorkListImages({images, sendImageToSlider, setImages}:Props) {
                 type="file" 
                 name="image" 
                 accept='image/*'
-                onChange={onImageSelect}
+                onChange={handleImageSelect}
             ></input>
             <span>Выберите фотографию</span>
-        </form>
-        
+        </form>    
         {images.map( item => (
             <img 
                 key={item.id}
                 src={item.url} alt=" " 
                 onClick={() => sendImageToSlider(item.url)}
-                onDragStart={dragImage}/>
+                onDragEnd={handleDragImage}/>
         ))}
     </div>
   )

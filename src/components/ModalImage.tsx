@@ -1,18 +1,16 @@
 import React from 'react'
 interface Props {
   imageUrl: string,
-  closeSlideImage: () => void
+  handleCloseSlideImage: (url: string) => void
 }
-export function ModalImage({imageUrl, closeSlideImage}:Props) {
+export function ModalImage({ imageUrl, handleCloseSlideImage }: Props) {
   return (
     <div className="modal--wrapper"
-      onClick={(e) => {
-        e.preventDefault()
-        closeSlideImage()}}
+      onClick={() => handleCloseSlideImage('')}
     >
-    <div className="modal-image">
-        <img src={imageUrl} alt=""/>
+      <div className="modal-image">
+        <img src={imageUrl} alt="" />
+      </div>
     </div>
-</div>
   )
 }

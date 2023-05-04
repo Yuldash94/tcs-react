@@ -5,18 +5,16 @@ import { ModalImage } from './ModalImage';
 interface Props {
     images: Iimage[],
     sendImageToSlider: (url:string) => void
-
 }
 export function Slider({images, sendImageToSlider}:Props) {
     const [modalImage, setModalImage] = useState('')
-    const openSlideImage = (url:string) => {
+    const [slide, setSlide] = useState(0)
+    
+    const handleOpenSlideImage = (url:string) => {
         setModalImage(url)
     }
-    const closeSlideImage = () => {
-        setModalImage('')
-    }
-    const [slide, setSlide] = useState(0)
-    const changeSlide = (direction = 1) => {
+
+    const handleChangeSlide = (direction = 1) => {
         if (!images.length) {
             setSlide(0)
         }
@@ -30,19 +28,19 @@ export function Slider({images, sendImageToSlider}:Props) {
             } 
             setSlide(slideNumber)
         } 
-      }
+    }
 
-      const imageDrop = (e:any) => {
-        let url = e.dataTransfer.getData('url')
+    const handleImageDrop = (url:string) => {
         sendImageToSlider(url)
-      }
+    }
+
   return (
     <div className="slider">
         <div className="slider-carousel">
             <div className="slider--slides"
                 style={{ transform: `translateX(-${slide * 100}%)` }}
                 onDragOver={(e) => e.preventDefault()}
-                onDrop={imageDrop}
+                onDrop={(e) => handleImageDrop(e.dataTransfer.getData('url'))}
             >   
                 {images.length > 0 ? 
                 images.map((item) => 
@@ -51,7 +49,7 @@ export function Slider({images, sendImageToSlider}:Props) {
                         className="slide" 
                         src={item.url} 
                         alt=""
-                        onClick={() => openSlideImage(item.url)}    
+                        onClick={() => handleOpenSlideImage(item.url)}    
                     ></img>
                     )
                 :
@@ -66,16 +64,16 @@ export function Slider({images, sendImageToSlider}:Props) {
             <div 
                 className="slider--btn"
                 id="previous-slide"
-                onClick={() => changeSlide(-1)}
+                onClick={() => handleChangeSlide(-1)}
             >&#60;</div>
             <p>Страница</p><p id="slide-number">{slide+1}</p>
             <div 
                 className="slider--btn" 
                 id="next-slide"
-                onClick={() => changeSlide(1)}
+                onClick={() => handleChangeSlide(1)}
             >&#62;</div>
         </div>
-        {modalImage && <ModalImage  imageUrl={modalImage} closeSlideImage={closeSlideImage}/>}
+        {modalImage && <ModalImage  imageUrl={modalImage} handleCloseSlideImage={handleOpenSlideImage}/>}
     </div>
   )
 }
