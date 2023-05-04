@@ -9,7 +9,7 @@ interface Props {
 export function Slider({images, sendImageToSlider}:Props) {
     const [modalImage, setModalImage] = useState('')
     const [slide, setSlide] = useState(0)
-    
+
     const handleOpenSlideImage = (url:string) => {
         setModalImage(url)
     }
@@ -27,6 +27,7 @@ export function Slider({images, sendImageToSlider}:Props) {
               slideNumber = (slide + direction) % images.length;
             } 
             setSlide(slideNumber)
+            
         } 
     }
 
@@ -37,7 +38,7 @@ export function Slider({images, sendImageToSlider}:Props) {
   return (
     <div className="slider">
         <div className="slider-carousel">
-            <div className="slider--slides"
+            <div className="slider--slides slide--animation"
                 style={{ transform: `translateX(-${slide * 100}%)` }}
                 onDragOver={(e) => e.preventDefault()}
                 onDrop={(e) => handleImageDrop(e.dataTransfer.getData('url'))}
