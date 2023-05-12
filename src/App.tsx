@@ -11,12 +11,17 @@ export interface Iimage {
 
 function App() {
   const [images, setImages] = useState<Iimage[]>(sliderImagesList)
-  const sendImageToSlider = (url: string) => {
+  const [slide, setSlide] = useState(0)
+  const sendImageToSlider = (url: string, slide: number ) => {
     let img = {
       id: Math.random(),
       url: url
     }
-    setImages([img, ...images])
+    setImages([
+      ...images.slice(0, slide),
+      img,
+      ...images.slice(slide)
+    ])
   }
   const handleDeleteAllImages = () => {
     setImages([])
@@ -24,8 +29,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Slider images={images} sendImageToSlider={sendImageToSlider} />
-      <WorkList sendImageToSlider={sendImageToSlider} handleDeleteAllImages={handleDeleteAllImages} />
+      <Slider images={images} sendImageToSlider={sendImageToSlider} slide={slide} setSlide={setSlide} />
+      <WorkList sendImageToSlider={sendImageToSlider} handleDeleteAllImages={handleDeleteAllImages} slide={slide} />
     </div>
   );
 }

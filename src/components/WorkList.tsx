@@ -14,10 +14,11 @@ interface IWorkList {
     isActive: boolean,
 }
 interface Props {
-    sendImageToSlider: (url: string) => void,
-    handleDeleteAllImages: () => void
+    sendImageToSlider: (url: string, slide: number) => void,
+    handleDeleteAllImages: () => void,
+    slide: number
 }
-export function WorkList({sendImageToSlider, handleDeleteAllImages}:Props) {
+export function WorkList({sendImageToSlider, handleDeleteAllImages, slide}:Props) {
     const [workList, setWorkList] = useState<IWorkList[]>(workListLinks)
     const [expand, setExpand] = useState<boolean>(false)
     const [galleryImages, setGalleryImages] = useState(galleryImagesList)
@@ -85,9 +86,9 @@ export function WorkList({sendImageToSlider, handleDeleteAllImages}:Props) {
             }
         </div>
         <Routes>
-            <Route path='/tcs-react' element={<WorkListImages images={galleryImages} setImages={setGalleryImages} sendImageToSlider={sendImageToSlider}/>}/>
-            <Route path='/tcs-react/sample' element={<WorkListImages images={sampleImages} setImages={setSampleImages} sendImageToSlider={sendImageToSlider}/>}/>
-            <Route path='/tcs-react/background' element={<WorkListImages images={backgroundImages} setImages={setBackgroundImages} sendImageToSlider={sendImageToSlider}/>}/>
+            <Route path='/tcs-react' element={<WorkListImages images={galleryImages} setImages={setGalleryImages} sendImageToSlider={sendImageToSlider} slide={slide}/>}/>
+            <Route path='/tcs-react/sample' element={<WorkListImages images={sampleImages} setImages={setSampleImages} sendImageToSlider={sendImageToSlider} slide={slide}/>}/>
+            <Route path='/tcs-react/background' element={<WorkListImages images={backgroundImages} setImages={setBackgroundImages} sendImageToSlider={sendImageToSlider} slide={slide}/>}/>
         </Routes>
     </div>
   )

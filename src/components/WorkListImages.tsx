@@ -2,11 +2,12 @@ import React from 'react'
 import { Iimage } from '../App'
 interface Props {
     images: Iimage[],
-    sendImageToSlider: (url:string) => void,
+    sendImageToSlider: (url:string, slide: number) => void,
+    slide: number,
     setImages: ([]) => void
 }
 
-export function WorkListImages({images, sendImageToSlider, setImages}:Props) {
+export function WorkListImages({images, sendImageToSlider, slide, setImages}:Props) {
     const handleDragImage = (e:any) => {
         e.dataTransfer.setData('url', e.target.src)
     }
@@ -33,7 +34,7 @@ export function WorkListImages({images, sendImageToSlider, setImages}:Props) {
             <img 
                 key={item.id}
                 src={item.url} alt=" " 
-                onClick={() => sendImageToSlider(item.url)}
+                onClick={() => sendImageToSlider(item.url, slide)}
                 onDragEnd={handleDragImage}/>
         ))}
     </div>

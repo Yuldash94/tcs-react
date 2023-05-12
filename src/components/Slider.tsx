@@ -4,11 +4,13 @@ import { ModalImage } from './ModalImage';
 
 interface Props {
     images: Iimage[],
-    sendImageToSlider: (url:string) => void
+    sendImageToSlider: (url:string, slide: number) => void,
+    setSlide: (slide: number) => void,
+    slide: number
 }
-export function Slider({images, sendImageToSlider}:Props) {
+export function Slider({images, sendImageToSlider, setSlide, slide}:Props) {
     const [modalImage, setModalImage] = useState('')
-    const [slide, setSlide] = useState(0)
+
 
     const handleOpenSlideImage = (url:string) => {
         setModalImage(url)
@@ -32,7 +34,7 @@ export function Slider({images, sendImageToSlider}:Props) {
     }
 
     const handleImageDrop = (url:string) => {
-        sendImageToSlider(url)
+        sendImageToSlider(url, slide)
     }
 
   return (
