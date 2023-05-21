@@ -1,13 +1,20 @@
 {
   "files": {
-    "main.css": "/tcs-react/static/css/main.5924ffa1.css",
-    "main.js": "/tcs-react/static/js/main.d8a8d16c.js",
+    "main.css": "/tcs-react/static/css/main.971d2faf.css",
+    "main.js": "/tcs-react/static/js/main.a5b822eb.js",
+    "static/media/Javascript_9.jpg": "/tcs-react/static/media/Javascript_9.a8a6df42593bd8109612.jpg",
+    "static/media/Javascript_3.png": "/tcs-react/static/media/Javascript_3.35a4c728eed2174ad6bb.png",
+    "static/media/Javascript_2.jpg": "/tcs-react/static/media/Javascript_2.920e1fb60d9efc147c3e.jpg",
+    "static/media/Javascript_4.png": "/tcs-react/static/media/Javascript_4.acb16fc1ecf7e315daeb.png",
+    "static/media/Javascript_7.png": "/tcs-react/static/media/Javascript_7.0eab32bdefa04707ef40.png",
+    "static/media/Javascript.jpg": "/tcs-react/static/media/Javascript.a4ef4bb5cb82d858adb4.jpg",
+    "static/media/Javascript_6.jpg": "/tcs-react/static/media/Javascript_6.bb4d01a998d4126a0e31.jpg",
     "index.html": "/tcs-react/index.html",
-    "main.5924ffa1.css.map": "/tcs-react/static/css/main.5924ffa1.css.map",
-    "main.d8a8d16c.js.map": "/tcs-react/static/js/main.d8a8d16c.js.map"
+    "main.971d2faf.css.map": "/tcs-react/static/css/main.971d2faf.css.map",
+    "main.a5b822eb.js.map": "/tcs-react/static/js/main.a5b822eb.js.map"
   },
   "entrypoints": [
-    "static/css/main.5924ffa1.css",
-    "static/js/main.d8a8d16c.js"
+    "static/css/main.971d2faf.css",
+    "static/js/main.a5b822eb.js"
   ]
 }
