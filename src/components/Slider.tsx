@@ -4,16 +4,16 @@ import { ModalImage } from './ModalImage';
 
 interface Props {
     images: Iimage[],
-    sendImageToSlider: (url:string, slide: number) => void,
+    sendImageToSlider: (url:string, slide: number, change: boolean, filter?: string, changeId?: number) => void,
     setSlide: (slide: number) => void,
     slide: number
 }
 export function Slider({images, sendImageToSlider, setSlide, slide}:Props) {
-    const [modalImage, setModalImage] = useState('')
+    const [modalImage, setModalImage] = useState<Iimage>()
 
 
-    const handleOpenSlideImage = (url:string) => {
-        setModalImage(url)
+    const handleOpenSlideImage = (image: Iimage) => {
+        setModalImage(image)
     }
 
     const handleChangeSlide = (direction = 1) => {
@@ -34,7 +34,7 @@ export function Slider({images, sendImageToSlider, setSlide, slide}:Props) {
     }
 
     const handleImageDrop = (url:string) => {
-        sendImageToSlider(url, slide)
+        sendImageToSlider(url, slide, false)
     }
 
   return (
@@ -51,8 +51,9 @@ export function Slider({images, sendImageToSlider, setSlide, slide}:Props) {
                         key={item.id} 
                         className="slide" 
                         src={item.url} 
+                        style={{filter: `${item.filter}`}}
                         alt=""
-                        onClick={() => handleOpenSlideImage(item.url)}    
+                        onClick={() => handleOpenSlideImage(item)}    
                     ></img>
                     )
                 :
@@ -76,7 +77,7 @@ export function Slider({images, sendImageToSlider, setSlide, slide}:Props) {
                 onClick={() => handleChangeSlide(1)}
             >&#62;</div>
         </div>
-        {modalImage && <ModalImage  imageUrl={modalImage} handleCloseSlideImage={handleOpenSlideImage}/>}
+        {modalImage?.url && <ModalImage  image={modalImage} handleCloseSlideImage={handleOpenSlideImage} sendImageToSlider={sendImageToSlider} slide={slide}/>}
     </div>
   )
 }

@@ -4,7 +4,7 @@ interface Props {
     images: Iimage[],
     sendImageToSlider: (url:string, slide: number) => void,
     slide: number,
-    setImages: ([]) => void
+setImages: ([]) => void
 }
 
 export function WorkListImages({images, sendImageToSlider, slide, setImages}:Props) {
@@ -15,7 +15,8 @@ export function WorkListImages({images, sendImageToSlider, slide, setImages}:Pro
         const file = e.target.files[0]
         let newImage: Iimage = {
             id: Math.random(),
-            url: URL.createObjectURL(new Blob([file]))
+            url: URL.createObjectURL(new Blob([file])),
+            filter: 'none'
         }
         setImages([...images, newImage])
     }

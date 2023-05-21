@@ -1,73 +1,104 @@
+import image_1 from '../images/Javascript.jpg'
+import image_2 from '../images/Javascript_2.jpg'
+import image_3 from '../images/Javascript_3.png'
+import image_4 from '../images/Javascript_4.png'
+import image_5 from '../images/Javascript_5.png'
+import image_6 from '../images/Javascript_6.jpg'
+import image_7 from '../images/Javascript_7.png'
+import image_8 from '../images/Javascript_8.png'
+import image_9 from '../images/Javascript_9.jpg'
+
 export const sliderImagesList = [
     {
         id: 1,
-        url: 'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230305183140/Javascript.jpg'
+        url: image_1,
+        filter: 'none'
     },
     {
         id: 2,
-        url: 'https://media.proglib.io/wp-uploads/2018/03/EzgdmaCQuT84bgDL4fhXZS.jpg'
+        url: image_2,
+        filter: 'none'
     },
     {
         id: 3,
-        url: 'https://cdn2.hexlet.io/derivations/image/fill_png/1200/565/eyJpZCI6IjRhYTgzNGM3NzQxZmU0MDQ1YWUzZTVlY2Y2MTc5NjU0LnBuZyIsInN0b3JhZ2UiOiJzdG9yZSJ9?signature=ebff15166605853f0470969c43f36e9acb18d92111fc9ddeed6a4e07e73dd52a'
+        url: image_3,
+        filter: 'none'
     },
     {
         id: 4,
-        url: 'https://learn.microsoft.com/training/achievements/create-nodejs-project-dependencies-social.png'
+        url: image_4,
+        filter: 'none'
+    },
+    {
+        id: 5,
+        url: image_9,
+        filter: 'none'
     }
 ]
 export const galleryImagesList = [
     {
         id: 1,
-        url: 'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230305183140/Javascript.jpg'
+        url: image_1,
+        filter: 'none'
     },
     {
         id: 2,
-        url: 'https://media.proglib.io/wp-uploads/2018/03/EzgdmaCQuT84bgDL4fhXZS.jpg'
+        url: image_2,
+        filter: 'none'
     },
     {
         id: 3,
-        url: 'https://cdn2.hexlet.io/derivations/image/fill_png/1200/565/eyJpZCI6IjRhYTgzNGM3NzQxZmU0MDQ1YWUzZTVlY2Y2MTc5NjU0LnBuZyIsInN0b3JhZ2UiOiJzdG9yZSJ9?signature=ebff15166605853f0470969c43f36e9acb18d92111fc9ddeed6a4e07e73dd52a'
+        url: image_4,
+        filter: 'none'
     },
     {
         id: 4,
-        url: 'https://learn.microsoft.com/training/achievements/create-nodejs-project-dependencies-social.png'
+        url: image_3,
+        filter: 'none'
     }
 ]
 export const sampleImagesList = [
     {
         id: 1,
-        url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQk47R-7FhLi7uBSnIvWuXxdptZDJq8H5K-g&usqp=CAU'
+        url: image_5,
+        filter: 'none'
     },
     {
         id: 2,
-        url: 'https://media.proglib.io/wp-uploads/2018/06/jhkhk.jpg'
+        url: image_6,
+        filter: 'none'
     },
     {
         id: 3,
-        url: 'https://www.freecodecamp.org/news/content/images/2021/06/javascriptfull.png'
+        url: image_7,
+        filter: 'none'
     },
     {
         id: 4,
-        url: 'https://learn.microsoft.com/training/achievements/create-nodejs-project-dependencies-social.png'
+        url: image_3,
+        filter: 'none'
     }
 ]
 export const backgrounImagesList = [
     {
         id: 1,
-        url: 'https://learn.microsoft.com/training/achievements/create-nodejs-project-dependencies-social.png'
+        url: image_3,
+        filter: 'none'
     },
     {
         id: 2,
-        url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_IctIi-0hkj_Tuevzb-t3tu240O2re5Tsrg&usqp=CAU'
+        url: image_8,
+        filter: 'none'
     },
     {
         id: 3,
-        url: 'https://xakep.ru/wp-content/uploads/2018/08/180618/js-h.jpg'
+        url: image_9,
+        filter: 'none'
     },
     {
         id: 4,
-        url: 'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230305183140/Javascript.jpg'
+        url: image_2,
+        filter: 'none'
     }
 ]
 export const workListLinks = [
