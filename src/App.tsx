@@ -6,33 +6,35 @@ import { sliderImagesList } from './data/data';
 
 export interface Iimage {
   id: number,
-  url: string
+  url: string,
+  editedUrl: string,
   filter: string
 }
 
 function App() {
   const [images, setImages] = useState<Iimage[]>(sliderImagesList)
   const [slide, setSlide] = useState(0)
-  const sendImageToSlider = (url: string, slide: number, change: boolean = false, filter?: string , changeId?: number) => {
+  const sendImageToSlider = (url: string, slide: number, change: boolean = false, filter?: string, changeId?: number) => {
     if (!change) {
-    let img = {
-      id: Math.random(),
-      url: url,
-      filter: filter || 'none'
-    }
-    setImages([
-      ...images.slice(0, slide),
-      img,
-      ...images.slice(slide)
-    ])
+      let img = {
+        id: Math.random(),
+        url: url,
+        editedUrl: url,
+        filter: filter || 'none'
+      }
+      setImages([
+        ...images.slice(0, slide),
+        img,
+        ...images.slice(slide)
+      ])
     }
     if (change) {
-      setImages(images.map(img => { 
+      setImages(images.map(img => {
         if (img.id === changeId) {
-          img.url = url
+          img.editedUrl = url
           img.filter = filter || 'none'
         }
-      return img
+        return img
       }))
     }
   }

@@ -18,16 +18,16 @@ interface Props {
     handleDeleteAllImages: () => void,
     slide: number
 }
-export function WorkList({sendImageToSlider, handleDeleteAllImages, slide}:Props) {
+export function WorkList({ sendImageToSlider, handleDeleteAllImages, slide }: Props) {
     const [workList, setWorkList] = useState<IWorkList[]>(workListLinks)
     const [expand, setExpand] = useState<boolean>(false)
     const [galleryImages, setGalleryImages] = useState(galleryImagesList)
     const [sampleImages, setSampleImages] = useState(sampleImagesList)
     const [backgroundImages, setBackgroundImages] = useState(backgrounImagesList)
-    
-    const navItemClick = (id:number) => {
+
+    const navItemClick = (id: number) => {
         setWorkList(
-            workList.map( item => {
+            workList.map(item => {
                 if (item.id !== id) {
                     item.isActive = false
                 }
@@ -38,58 +38,58 @@ export function WorkList({sendImageToSlider, handleDeleteAllImages, slide}:Props
             })
         )
     }
-    
+
     const expandImages = () => {
-    setExpand(!expand)
+        setExpand(!expand)
     }
-  return (
-    <div className={!expand ? "work-list" : "work-list work-list--expand" }>
-        <nav>
-            {workList.map(item => (
-                <div 
-                    key={item.id} 
-                    className={!item.isActive ? "nav-item" : "nav-item nav-item--active"} 
-                    onClick={() => navItemClick(item.id)}
-                >
-                    <Link to={item.link}>
-                        {item.title}
-                    </Link>
+    return (
+        <div className={!expand ? "work-list" : "work-list work-list--expand"}>
+            <nav>
+                {workList.map(item => (
+                    <div
+                        key={item.id}
+                        className={!item.isActive ? "nav-item" : "nav-item nav-item--active"}
+                        onClick={() => navItemClick(item.id)}
+                    >
+                        <Link to={item.link}>
+                            {item.title}
+                        </Link>
+                    </div>
+                ))}
+            </nav>
+            <div className="work-list--table">
+                <div>
+                    <div
+                        className="table-item clear"
+                        onClick={handleDeleteAllImages}
+                    >
+                        <RxCross2 />
+                        Очистить</div>
+                    <div className="table-item choose">
+                        <MdDeleteForever />
+                        Выбрать</div>
                 </div>
-            ))}
-        </nav>
-        <div className="work-list--table">
-            <div>
-                <div 
-                    className="table-item clear"
-                    onClick={handleDeleteAllImages}    
-                >
-                    <RxCross2/>
-                     Очистить</div>
-                <div className="table-item choose">
-                    <MdDeleteForever/>
-                    Выбрать</div>
+                {!expand ?
+                    <div className="expand"
+                        onClick={expandImages}
+                    >
+                        <TbArrowsMaximize />
+                        Развернуть
+                    </div>
+                    :
+                    <div className="expand"
+                        onClick={expandImages}
+                    >
+                        <TiArrowMinimise />
+                        Свернуть
+                    </div>
+                }
             </div>
-            {!expand ?
-                <div className="expand" 
-                    onClick={expandImages}
-                >
-                    <TbArrowsMaximize/>
-                    Развернуть
-                </div>
-            :
-                <div className="expand" 
-                    onClick={expandImages}
-                >
-                    <TiArrowMinimise/>
-                    Свернуть
-                </div>
-            }
+            <Routes>
+                <Route path='/tcs-react' element={<WorkListImages images={galleryImages} setImages={setGalleryImages} sendImageToSlider={sendImageToSlider} slide={slide} />} />
+                <Route path='/tcs-react/sample' element={<WorkListImages images={sampleImages} setImages={setSampleImages} sendImageToSlider={sendImageToSlider} slide={slide} />} />
+                <Route path='/tcs-react/background' element={<WorkListImages images={backgroundImages} setImages={setBackgroundImages} sendImageToSlider={sendImageToSlider} slide={slide} />} />
+            </Routes>
         </div>
-        <Routes>
-            <Route path='/tcs-react' element={<WorkListImages images={galleryImages} setImages={setGalleryImages} sendImageToSlider={sendImageToSlider} slide={slide}/>}/>
-            <Route path='/tcs-react/sample' element={<WorkListImages images={sampleImages} setImages={setSampleImages} sendImageToSlider={sendImageToSlider} slide={slide}/>}/>
-            <Route path='/tcs-react/background' element={<WorkListImages images={backgroundImages} setImages={setBackgroundImages} sendImageToSlider={sendImageToSlider} slide={slide}/>}/>
-        </Routes>
-    </div>
-  )
+    )
 }

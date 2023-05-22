@@ -252,7 +252,9 @@ header {
     background: rgba(0, 0, 0, 0.92);
     z-index: 3;
 }
-
+.modal--wrapper-basket {
+    height: 100%;
+}
 .modal {
     width: 320px;
     height: 180px;
@@ -268,6 +270,8 @@ header {
 }
 .modal-image {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .modal-image img{
     width: 100%;
